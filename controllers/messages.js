@@ -19,15 +19,17 @@ const index = (req, res) => {
 }
   
 const create = (req, res) => {
+  // test email address?
+  // if not real, send a 400 (Bad Request)
+
   const message = {
     from: "zachmilan@engineer.com",
     to: "zacherymilan@gmail.com",
-    subject: "New message from your portfolio!",
-    text: "This is a test, only that."
+    replyTo: req.body.email,
+    subject: `New message from ${req.body.name}!`,
+    text: req.body.message
   }
-  transporter.sendMail(message, (err) => {
-    console.log(err)
-  })
+  transporter.sendMail(message)
   db.Message.create(req.body, (err, newMessage) => {
     if (err) console.log('Error at Message create:', err)
     res.status(200).json(newMessage)

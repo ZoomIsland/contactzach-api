@@ -1,11 +1,18 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 require('dotenv').config();
 
 const PORT = process.env.PORT;
 const routes = require('./routes');
 
 // MIDDLEWARE
+// CORS with whitelist
+corsOptions = {
+  origin: 'https://zachmagus.com',
+}
+app.use(cors(corsOptions))
+
 // Body Parser
 app.use(express.urlencoded({extended: false}));
 
