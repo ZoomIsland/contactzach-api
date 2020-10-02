@@ -7,11 +7,11 @@ const PORT = process.env.PORT;
 const routes = require('./routes');
 
 // MIDDLEWARE
-// CORS with whitelist
-corsOptions = {
-  origin: 'https://zachmagus.com',
-}
-app.use(cors(corsOptions))
+// CORS whitelist taken out while the site goes live
+// corsOptions = {
+//   origin: 'https://zachmagus.com',
+// }
+app.use(cors())
 
 // Body Parser
 app.use(express.urlencoded({extended: false}));
