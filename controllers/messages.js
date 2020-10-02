@@ -20,6 +20,7 @@ const index = (req, res) => {
 }
   
 const create = (req, res) => {
+  console.log(req.body)
   let emailAddress;
   const re = /\S+@\S+\.\S+/;
   if (re.test(req.body.email)) {
