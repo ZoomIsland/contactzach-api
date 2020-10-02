@@ -2,9 +2,7 @@ const db = require('../models/index')
 const nodemailer = require('nodemailer');
 
 let transporter = nodemailer.createTransport({
-  host: 'smtp.mail.com',
-  port: 587,
-  secure: false,
+  service: "gmail",
   auth: {
     user: process.env.username,
     pass: process.env.password
@@ -25,11 +23,11 @@ const create = (req, res) => {
   if (re.test(req.body.email)) {
     emailAddress = req.body.email
   } else {
-    emailAddress = 'zachmilan@engineer.com';
+    emailAddress = 'contactzachm@gmail.com';
   }
 
   const message = {
-    from: "zachmilan@engineer.com",
+    from: "contactzachm@gmail.com",
     to: "zacherymilan@gmail.com",
     replyTo: emailAddress,
     subject: `New message from ${req.body.name}!`,
