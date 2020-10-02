@@ -20,22 +20,22 @@ const index = (req, res) => {
   
 const create = (req, res) => {
   console.log("This is the body that arrived: ", req.body)
-  let emailAddress;
-  const re = /\S+@\S+\.\S+/;
-  if (re.test(req.body.email)) {
-    emailAddress = req.body.email
-  } else {
-    emailAddress = 'zachmilan@engineer.com';
-  }
+  // let emailAddress;
+  // const re = /\S+@\S+\.\S+/;
+  // if (re.test(req.body.email)) {
+  //   emailAddress = req.body.email
+  // } else {
+  //   emailAddress = 'zachmilan@engineer.com';
+  // }
 
-  const message = {
-    from: "zachmilan@engineer.com",
-    to: "zacherymilan@gmail.com",
-    replyTo: emailAddress,
-    subject: `New message from ${req.body.name}!`,
-    text: `From ${req.body.name} at ${req.body.email}: ${req.body.message}`
-  }
-  transporter.sendMail(message)
+  // const message = {
+  //   from: "zachmilan@engineer.com",
+  //   to: "zacherymilan@gmail.com",
+  //   replyTo: emailAddress,
+  //   subject: `New message from ${req.body.name}!`,
+  //   text: `From ${req.body.name} at ${req.body.email}: ${req.body.message}`
+  // }
+  // transporter.sendMail(message)
   db.Message.create(req.body, (err, newMessage) => {
     if (err) console.log('Error at Message create:', err)
     res.status(200).json(newMessage)
