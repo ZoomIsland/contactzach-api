@@ -1,6 +1,5 @@
 const db = require('../models/index')
 const nodemailer = require('nodemailer');
-const { ENGINE_METHOD_RAND } = require('constants');
 
 let transporter = nodemailer.createTransport({
   host: 'smtp.mail.com',
@@ -20,7 +19,7 @@ const index = (req, res) => {
 }
   
 const create = (req, res) => {
-  console.log(req.body)
+  console.log("This is the body that arrived: ", req.body)
   let emailAddress;
   const re = /\S+@\S+\.\S+/;
   if (re.test(req.body.email)) {
