@@ -14,6 +14,7 @@ const routes = require('./routes');
 app.use(cors())
 
 // Body Parser
+app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 // ROUTES
