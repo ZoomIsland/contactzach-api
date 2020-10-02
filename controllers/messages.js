@@ -36,10 +36,10 @@ const create = (req, res) => {
   //   text: `From ${req.body.name} at ${req.body.email}: ${req.body.message}`
   // }
   // transporter.sendMail(message)
-  db.Message.create(req.body, (err, newMessage) => {
-    if (err) console.log('Error at Message create:', err)
-    res.status(200).json(newMessage)
-  })
+  // db.Message.create(req.body, (err, newMessage) => {
+  //   if (err) console.log('Error at Message create:', err)
+  //   res.status(200).json(newMessage)
+  // })
 }
 
 module.exports = {
