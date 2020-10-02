@@ -17,7 +17,6 @@ const index = (req, res) => {
 }
   
 const create = (req, res) => {
-  console.log("This is the body that arrived: ", req.body)
   let emailAddress;
   const re = /\S+@\S+\.\S+/;
   if (re.test(req.body.email)) {
